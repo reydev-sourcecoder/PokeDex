@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SerializeDemo.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:SerializeDemo;assembly=SerializeDemo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10,20" VerticalOptions="Center">
+        <!--  Place new controls here  -->
+        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+            <Entry
+                HorizontalOptions="Start"
+                Placeholder="Name"
+                Text="{Binding Name}"
+                WidthRequest="220" />
+            <Button Command="{Binding SearchPokemonCommand}" Text="Search" />
+        </StackLayout>
+
+        <Frame
+            HorizontalOptions="CenterAndExpand"
+            TranslationY="10"
+            WidthRequest="220">
+            <StackLayout>
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="200"
+                    Source="{Binding PokemonImage}"
+                    WidthRequest="300" />
+                <Label Text="{Binding PokemonName, StringFormat='Name : {0}'}" />
+                <Label Text="{Binding PokemonHeight, StringFormat='Height : {0}'}" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
